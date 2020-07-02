@@ -1,7 +1,11 @@
-<h3>
-    {{ product.title }}
-</h3>
 <img [src]="product.image" alt="" srcset="">
-<strong>{{ product.price }}</strong>
 
-<button (click)="addCart()">Agregar al carrito</button>
+<div class="info">
+    <h3>
+        {{ product.title | uppercase }}
+    </h3>
+    <strong>{{ product.price |currency:'COP' }}</strong>
+    <p>{{ product.description | slice:0:10}}</p>
+    <p>{{today | date: 'medium'}}</p>
+    <button (click)="addCart()">Agregar al carrito</button>
+</div>

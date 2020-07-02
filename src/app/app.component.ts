@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'platziStore';
 
   items = ['Jessica', 'Kevin', 'Ludwing'];
+  power = 10;
 
   products: Product[] = [
     {
@@ -63,7 +64,7 @@ export class AppComponent {
   }
 
   deleteItem(index: number) {
-    this.items.splice(index, 1)
+    this.items.splice(index, 1);
   }
 
   clickProduct(id: number) {
