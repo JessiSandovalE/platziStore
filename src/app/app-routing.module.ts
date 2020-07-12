@@ -1,15 +1,15 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ProductComponent } from './components/product/product.component';
+// import { ProductComponent } from './components/product/product.component';
 
-import { ProductsComponent } from './products/products.component';
-import { ContactComponent } from './contact/contact.component';
-import { DemoComponent } from './contact/demo/demo.component';
+import { ContactComponent } from './contact/components/contact/contact.component';
+import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+
 import { LayoutComponent } from './layout/layout.component';
 
 import { AdminGuard } from './admin.guard';
+import { ContactModule } from './contact/contact.module';
 
 const routes: Routes = [
   {
@@ -28,16 +28,16 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
-      },
-      {
-        path: 'products/:id',
-        component: ProductDetailComponent
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
       },
       {
         path: 'contact',
         canActivate: [AdminGuard],
-        component: ContactComponent
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
+      },
+      {
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
       }
     ]
   },
