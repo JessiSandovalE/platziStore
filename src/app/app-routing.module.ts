@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/components/page-not-foun
 import { LayoutComponent } from './layout/layout.component';
 
 import { AdminGuard } from './admin.guard';
-import { ContactModule } from './contact/contact.module';
+
 
 const routes: Routes = [
   {
@@ -45,11 +45,14 @@ const routes: Routes = [
     path: 'demo',
     component: DemoComponent
   },
-
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
   {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
-  }
+  },
 
 ];
 
