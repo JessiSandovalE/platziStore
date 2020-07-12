@@ -3,8 +3,8 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 // import { ProductComponent } from './components/product/product.component';
 
 import { ContactComponent } from './contact/components/contact/contact.component';
-import { DemoComponent } from './components/demo/demo.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DemoComponent } from './demo/demo.component';
+import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 
 import { LayoutComponent } from './layout/layout.component';
 
@@ -48,7 +48,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    component: PageNotFoundComponent
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
   }
 
 ];
