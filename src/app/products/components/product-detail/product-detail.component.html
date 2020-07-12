@@ -1,14 +1,19 @@
 <div>
-    <img src="{{product.image}}" alt="">
-</div>
-<div>
-    <ul>
-        <li>Nombre: {{product.title}}</li>
-        <li>Precio {{product.price }}</li>
-        <li>
-            <p>
-                {{product.description}}
-            </p>
-        </li>
-    </ul>
+    <div class="imagen">
+        <img [src]="product.image " alt=" ">
+    </div>
+    <div>
+        <ul>
+            <li>Nombre: {{product.title}}</li>
+            <li>Precio {{product.price }}</li>
+            <li>
+                <p>
+                    {{product.description}}
+                </p>
+            </li>
+        </ul>
+    </div>
+    <button (click)="createProduct()"> Crear</button>
+    <button (click)="updateProduct()"> Update</button>
+    <button (click)="deleteProduct()"> Delete</button>
 </div>
