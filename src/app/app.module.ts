@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -16,6 +15,11 @@ import { ContactModule } from './contact/contact.module';
 import { CartModule } from './cart/cart.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment.prod';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactModule,
     CartModule,
     PageNotFoundModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
